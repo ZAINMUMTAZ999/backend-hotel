@@ -1,5 +1,4 @@
 import express ,{Response, Router} from "express";
-// import "dotenv/config";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import serverless from "serverless-http";
@@ -11,9 +10,11 @@ import { addHeroImageRouter } from "./routes/addHeroImageRouter";
 import dotenv from "dotenv";
 dotenv.config();
 const MONGODB_URL = "mongodb+srv://mzainmumtaz99_db_user:yf3e6r4ANk545NTk@cluster0.245yfua.mongodb.net/?appName=Cluster0";
-
 const app = express();
 app.use(express.json());
+
+
+
 
 mongoose
   .connect(MONGODB_URL)
@@ -52,17 +53,24 @@ app.use(
 // const CLOUDINARY_API_KEY=227999443996848
 // const CLOUDINARY_CLOUD_NAME=Zain_Choudhary
 cloudinary.config({
-  cloud_name: "oh1XJ4ucXibvjBGywHQ_vkXRQv4",
-  api_key: "227999443996848",
-  api_secret: "Zain_Choudhary",
+    cloud_name: "zainmughal999", 
+  api_key:"744766614756274", 
+  api_secret: "F5uKFc-wILFbT2CW44eUJzDV8o8"
+  // cloud_name: "oh1XJ4ucXibvjBGywHQ_vkXRQv4",
+  // api_key: "227999443996848",
+  // api_secret: "Zain_Choudhary",
 });
 
 const router = Router();
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
-router.use("/v1", registerRouter);
-router.use("/v2", loginRouter);
-router.use("/v3", addHeroImageRouter);
+app.use("/v1", registerRouter);
+app.use("/v2", loginRouter);
+app.use("/v3", addHeroImageRouter);
+
+
+
+
 
 
 app.get("/", (_req, res:Response) => {

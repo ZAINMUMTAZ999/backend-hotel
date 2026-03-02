@@ -101,7 +101,7 @@ loginRouter.get(
   "/data",
 
   async (_req: Request, resp: Response) => {
-    resp.status(200).json({ message: "hey data api working " });
+    resp.status(200).json({ message: "hey data api working backend getting" });
   }
 );
 // getting id per hotel
